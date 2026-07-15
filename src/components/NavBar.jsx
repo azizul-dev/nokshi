@@ -13,7 +13,7 @@ const NavBar = () => {
         </MyLink>
       </li>
       <li className="mt-2 lg:mt-0 lg:ml-3">
-        <MyLink href="/timeLine">
+        <MyLink href="/products">
           <FaShoppingBag /> Products
         </MyLink>
       </li>
