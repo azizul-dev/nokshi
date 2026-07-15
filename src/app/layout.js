@@ -3,6 +3,7 @@ import "./globals.css";
 
 import NavBar from "@/components/NavBar";
 import { CartProvider } from "@/context/ProductContext";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <NavBar />
           {children}
+          <Footer/>
         </CartProvider>
       </body>
     </html>
