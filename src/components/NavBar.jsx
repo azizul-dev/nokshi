@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaHome, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
 import MyLink from "./MyLink";
+import Image from "next/image";
 
 const NavBar = () => {
   const links = (
@@ -54,11 +55,19 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <Link
-            href={"/"}
-            className="btn btn-ghost font-bold text-3xl bg-gradient-to-r from-[#f4af10] to-[#d6440a] text-transparent bg-clip-text"
-          >
-            Nok<span>Shi</span>
+          <Link href={"/"} className="btn btn-ghost flex items-center gap-2">
+            <div className="p-[2px] rounded-full bg-gradient-to-r from-[#f4af10] to-[#d6440a]">
+              <Image
+                src="/logo.png"
+                alt="Nokshi logo"
+                width={36}
+                height={36}
+                className="object-contain rounded-full block bg-white"
+              />
+            </div>
+            <span className="font-bold text-3xl bg-gradient-to-r from-[#f4af10] to-[#d6440a] text-transparent bg-clip-text">
+              Nok<span>Shi</span>
+            </span>
           </Link>
         </div>
 
