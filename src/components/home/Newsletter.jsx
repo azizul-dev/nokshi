@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { Mail, Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,6 @@ export default function Newsletter() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) return;
-    // dummy submit — no backend
     setSubmitted(true);
     setEmail("");
     setTimeout(() => setSubmitted(false), 3000);
@@ -19,8 +19,13 @@ export default function Newsletter() {
 
   return (
     <section className="container mx-auto px-4 py-10 md:py-16">
-      <div className="relative overflow-hidden rounded-3xl bg-[#1C1917] px-6 py-12 md:px-16 md:py-16 text-center">
-        {/* decorative gradient blobs */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative overflow-hidden rounded-3xl bg-[#1C1917] px-6 py-12 md:px-16 md:py-16 text-center"
+      >
         <div className="pointer-events-none absolute -top-20 -left-20 w-64 h-64 rounded-full bg-[#d6440a]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-[#f4af10]/20 blur-3xl" />
 
@@ -36,8 +41,7 @@ export default function Newsletter() {
             Stay in the Loop
           </h2>
           <p className="mt-2 text-sm md:text-base text-white/60 max-w-md mx-auto">
-            Subscribe for early access to new drops, exclusive offers, and
-            style inspiration.
+            Subscribe for early access to new drops, exclusive offers, and style inspiration.
           </p>
 
           <form
@@ -61,12 +65,10 @@ export default function Newsletter() {
           </form>
 
           {submitted && (
-            <p className="mt-3 text-xs text-[#f4af10]">
-              🎉 Thanks for subscribing!
-            </p>
+            <p className="mt-3 text-xs text-[#f4af10]">🎉 Thanks for subscribing!</p>
           )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
