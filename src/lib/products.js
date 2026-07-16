@@ -1,5 +1,5 @@
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://nokshi-git-main-azizul-dev.vercel.app/";
 
 async function readData() {
   const res = await fetch(`${BASE_URL}/data.json`, { cache: "no-store" });
