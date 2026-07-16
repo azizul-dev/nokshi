@@ -92,16 +92,16 @@
   },
   {
     "id": 8,
-    "name": "Printed Cotton Pajama",
-    "category": "Pajama",
-    "price": 690,
-    "image": "https://images.unsplash.com/photo-1584865288642-42078afe6942?auto=format&fit=crop&w=800&q=80",
-    "hoverImage": "https://images.unsplash.com/photo-1628250521470-28c1fc54616c?auto=format&fit=crop&w=800&q=80",
-    "rating": 4.0,
-    "colors": ["White", "Cream"],
-    "sizes": ["S", "M", "L", "XL"],
+    "name": "Handwoven Cotton Saree",
+    "category": "Saree",
+    "price": 2490,
+    "image": "https://images.unsplash.com/photo-1745482036066-5d215ed6b910?auto=format&fit=crop&w=800&q=80",
+    "hoverImage": "https://images.unsplash.com/photo-1679006831648-7c9ea12e5807?auto=format&fit=crop&w=800&q=80",
+    "rating": 4.6,
+    "colors": ["Green", "Off-White"],
+    "sizes": ["Free Size"],
     "inStock": true,
-    "description": "The everyday companion piece — soft-washed cotton with an adjustable drawstring waist."
+    "description": "A handwoven cotton saree with a contrast border — light enough for daily wear, elegant enough for the office."
   },
   {
     "id": 9,
@@ -118,16 +118,16 @@
   },
   {
     "id": 10,
-    "name": "Denim Casual Shirt",
-    "category": "Shirt",
-    "price": 1390,
-    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
-    "hoverImage": "https://images.unsplash.com/photo-1744551358303-46edae8b374b?auto=format&fit=crop&w=800&q=80",
-    "rating": 3.9,
-    "colors": ["Indigo"],
-    "sizes": ["M", "L", "XL"],
-    "inStock": false,
-    "description": "A washed denim shirt with a soft hand-feel, built to layer over a fatua or worn open on its own."
+    "name": "Bridal Silk Saree",
+    "category": "Saree",
+    "price": 6490,
+    "image": "https://images.unsplash.com/photo-1769500804057-ca1391bf4617?auto=format&fit=crop&w=800&q=80",
+    "hoverImage": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    "rating": 4.9,
+    "colors": ["Red", "Gold"],
+    "sizes": ["Free Size"],
+    "inStock": true,
+    "description": "A rich silk saree with gold zari work and matching jewelry-ready pallu — made for the big day."
   },
   {
     "id": 11,
