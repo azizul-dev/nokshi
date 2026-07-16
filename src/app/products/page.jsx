@@ -1,20 +1,42 @@
 import ProductGrid from "@/components/product/ProductGrid";
-import CategoryFilter from "@/components/product/CategoryFilter";
+import ProductFilters from "@/components/product/ProductFilters";
 import { getAllProducts } from "@/lib/products";
 
 export default async function ProductsPage({ searchParams }) {
   const products = await getAllProducts();
-
   const resolvedSearchParams = await searchParams;
+
   const activeCategory = resolvedSearchParams?.category;
+  const query = resolvedSearchParams?.q?.toLowerCase().trim() || "";
+  const sort = resolvedSearchParams?.sort || "";
 
   const categories = [...new Set(products.map((p) => p.category))];
 
-  const filteredProducts = activeCategory
+  let filteredProducts = activeCategory
     ? products.filter(
         (p) => p.category.toLowerCase() === activeCategory.toLowerCase()
       )
     : products;
+
+ 
+  if (query) {
+    filteredProducts = filteredProducts.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+    );
+  }
+
+ 
+  if (sort === "price-asc") {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+  } else if (sort === "price-desc") {
+    filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+  } else if (sort === "rating-desc") {
+    filteredProducts = [...filteredProducts].sort(
+      (a, b) => (b.rating || 0) - (a.rating || 0)
+    );
+  }
 
   return (
     <section className="container mx-auto px-4 py-8 md:py-12">
@@ -30,7 +52,7 @@ export default async function ProductsPage({ searchParams }) {
         </h1>
       </div>
 
-      <CategoryFilter categories={categories} />
+      <ProductFilters categories={categories} />
 
       <ProductGrid products={filteredProducts} />
     </section>
