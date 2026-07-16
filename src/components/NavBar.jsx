@@ -6,11 +6,17 @@ import { FaHome, FaShoppingBag, FaShoppingCart } from "react-icons/fa";
 import MyLink from "./MyLink";
 import Image from "next/image";
 import { useCart } from "@/context/ProductContext";
- 
+import { FaHeart } from "react-icons/fa";
 
 const NavBar = () => {
   const { cartItems } = useCart();
-  const cartCount = (cartItems || []).reduce((sum, item) => sum + item.quantity, 0);
+  const cartCount = (cartItems || []).reduce(
+    (sum, item) => sum + item.quantity,
+    0,
+  );
+
+  const { wishlist } = useCart();
+const wishlistCount = (wishlist || []).length;
 
   const links = (
     <>
@@ -31,6 +37,18 @@ const NavBar = () => {
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-3 bg-[#d6440a] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
                 {cartCount}
+              </span>
+            )}
+          </span>
+        </MyLink>
+      </li>
+      <li className="mt-2 lg:mt-0 lg:ml-3">
+        <MyLink href="/wishlist">
+          <span className="relative inline-flex items-center gap-1">
+            <FaHeart /> Wishlist
+            {wishlistCount > 0 && (
+              <span className="absolute -top-2 -right-3 bg-[#d6440a] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                {wishlistCount}
               </span>
             )}
           </span>

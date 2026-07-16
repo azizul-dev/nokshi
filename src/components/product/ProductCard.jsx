@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { useCart } from "@/context/ProductContext";
 
 const SWATCH_HEX = {
   white: "#FFFFFF",
@@ -50,9 +52,17 @@ const ProductCard = ({ product }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const fullStars = Math.round(rating);
+  const { toggleWishlist, isInWishlist } = useCart();
+  const inWishlist = isInWishlist(id);
 
   // hoverImage আছে কিনা চেক করা হচ্ছে — না থাকলে (null/undefined) ছবি বদলাবে না
   const hasHoverImage = Boolean(hoverImage);
+
+  const handleWishlistClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(product);
+  };
 
   return (
     <motion.div
@@ -101,6 +111,20 @@ const ProductCard = ({ product }) => {
           <span className="absolute left-3 top-3 rounded-full bg-[#1C1917]/80 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#F7F3EC] backdrop-blur-sm">
             {category}
           </span>
+
+          {/* উইশলিস্ট হার্ট বাটন */}
+          <button
+            onClick={handleWishlistClick}
+            aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+            className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/85 backdrop-blur-sm shadow-sm transition-transform duration-200 hover:scale-110 active:scale-95"
+          >
+            {inWishlist ? (
+              <FaHeart className="h-4 w-4 text-[#7A2530]" />
+            ) : (
+              <FaRegHeart className="h-4 w-4 text-[#1C1917]/60" />
+            )}
+          </button>
+
           {!inStock && (
             <span className="absolute bottom-3 left-3 rounded-md bg-[#7A2530] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-[#F7F3EC]">
               Out of stock
