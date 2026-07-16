@@ -1,37 +1,58 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaLeaf } from 'react-icons/fa';
 
 const Hero = () => {
     return (
-        <div className="relative w-full h-[550px] md:h-[650px] rounded-2xl overflow-hidden">
+        <div className="relative w-full rounded-2xl overflow-hidden bg-base-100 shadow-sm">
+            <div className="grid md:grid-cols-2 items-center gap-8 md:gap-0">
 
-            <Image
-                src="/hero1.png"
-                alt="Nokshi collection banner"
-                fill
-                className="object-cover"
-                priority
-            />
+                {/* Left - Content */}
+                <div className="order-2 md:order-1 px-6 md:px-12 py-10 md:py-0">
 
-            <div className="absolute inset-0 bg-black/10"></div>
+                    <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#d6440a] bg-[#d6440a]/10 px-3 py-1.5 rounded-full mb-5">
+                        <FaLeaf className="text-[#f4af10]" />
+                        New Collection
+                    </span>
 
-            <p className="absolute top-8 left-8 max-w-xs text-sm text-white leading-relaxed font-medium">
-                We are dedicated to creating high-quality, handcrafted apparel that fits your lifestyle.
-            </p>
+                    <h1 className="text-4xl md:text-6xl leading-[1.05] text-[#2B2420] font-bold">
+                        Wear Your <br />
+                        <span className="italic font-heading bg-gradient-to-r from-[#f4af10] to-[#d6440a] text-transparent bg-clip-text">
+                            Confidence
+                        </span>
+                    </h1>
 
-            <h1 className="absolute bottom-24 right-8 text-right text-5xl md:text-7xl text-white leading-[0.95]">
-                Wear Your <br />
-                <span className="italic font-heading">Confidence</span>
-            </h1>
+                    <p className="mt-5 max-w-sm text-sm md:text-base text-[#2B2420]/70 leading-relaxed">
+                        We are dedicated to creating high-quality, handcrafted apparel that fits your lifestyle.
+                    </p>
 
-            <Link
-                href="/products"
-                className="absolute bottom-8 left-8 bg-white text-[#2B2420] text-sm font-medium px-5 py-3 rounded-full flex items-center gap-2 hover:gap-3 transition-all"
-            >
-                Shop now <FaArrowRight />
-            </Link>
+                    <Link
+                        href="/products"
+                        className="group mt-8 inline-flex items-center gap-2 bg-gradient-to-r from-[#f4af10] to-[#d6440a] text-white text-sm font-medium px-6 py-3.5 rounded-full shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
+                    >
+                        Shop now
+                        <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
 
+                {/* Right - Image */}
+                <div className="order-1 md:order-2 relative h-[350px] md:h-[600px] w-full">
+                    <div className="absolute inset-3 md:inset-6 rounded-2xl overflow-hidden">
+                        <Image
+                            src="/hero2.png"
+                            alt="Nokshi collection banner"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                    </div>
+
+                    {/* accent ring */}
+                    <div className="hidden md:block absolute -z-10 top-6 right-0 w-full h-full rounded-2xl bg-gradient-to-br from-[#f4af10]/20 to-[#d6440a]/20 blur-2xl" />
+                </div>
+
+            </div>
         </div>
     );
 };
