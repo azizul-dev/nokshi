@@ -9,13 +9,9 @@ A modern, fully responsive frontend for a fashion e-commerce store, built as par
 ## ✨ Preview
 
 ### Hero Section
-![Hero Section](./screenshots/hero.png)
-
-### Product Listing
-![All Products](./screenshots/all-products.png)
-
-### Product Details
-![Product Details](./screenshots/product-details.png)
+![Hero Section](./public/screenshots/hero.png)
+![All Products](./public/screenshots/all-products.png)
+![Product Details](./public/screenshots/product-details.png)
 
 ---
 
