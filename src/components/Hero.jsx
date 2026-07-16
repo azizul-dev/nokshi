@@ -18,7 +18,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// এখানে তোমার ৩-৪ টা হিরো ইমেজ দাও (public ফোল্ডারে রাখা)
+ 
 const heroImages = ["/hero2.png", "/hero3.png", "/hero4.png"];
 
 const Hero = () => {
@@ -27,14 +27,14 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroImages.length);
-    }, 4000); // প্রতি ৪ সেকেন্ডে ছবি পরিবর্তন হবে
+    }, 4000);  
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden bg-base-100 shadow-sm">
       <div className="grid md:grid-cols-2 items-center gap-8 md:gap-0">
-        {/* Left - Content */}
+        
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -79,7 +79,7 @@ const Hero = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* স্লাইডার ডট ইন্ডিকেটর */}
+             
             <div className="flex gap-2">
               {heroImages.map((_, i) => (
                 <button
@@ -97,7 +97,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right - Image Slider */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -139,7 +139,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* floating premium badge */}
+          
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* accent ring */}
+ 
           <div className="hidden md:block absolute -z-10 top-6 right-0 w-full h-full rounded-2xl bg-gradient-to-br from-[#f4af10]/20 to-[#d6440a]/20 blur-2xl" />
         </motion.div>
       </div>

@@ -5,7 +5,7 @@ import { getAllProducts, getProductById } from "@/lib/products";
 import { Truck, ShieldCheck, RotateCcw, CircleAlert } from "lucide-react";
 import AddToCartButton from "../AddToCartButton";
 
-// Pre-builds a static page per product id at build time.
+ 
 export async function generateStaticParams() {
   const products = await getAllProducts();
   return products.map((p) => ({ id: String(p.id) }));
@@ -23,7 +23,7 @@ export default async function ProductDetailsPage({ params }) {
 
   return (
     <section className="container mx-auto grid grid-cols-1 gap-10 px-4 py-10 md:grid-cols-2 md:gap-12 md:py-16">
-      {/* Image */}
+ 
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-[#EFE9DC] shadow-sm">
         <Image
           src={image}
@@ -42,7 +42,7 @@ export default async function ProductDetailsPage({ params }) {
         )}
       </div>
 
-      {/* Details */}
+ 
       <div className="flex flex-col gap-5">
         <span className="w-fit rounded-full bg-gradient-to-r from-[#f4af10] to-[#d6440a] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#F7F3EC]">
           {category}
@@ -69,7 +69,7 @@ export default async function ProductDetailsPage({ params }) {
 
         <div className="divider before:bg-[#E7E1D4] after:bg-[#E7E1D4] my-1"></div>
 
-        {/* Trust badges */}
+ 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="flex items-center gap-2.5 rounded-xl border border-[#E7E1D4] bg-[#FBF9F4] px-3 py-3">
             <Truck className="w-4.5 h-4.5 text-[#d6440a] shrink-0" strokeWidth={1.75} />

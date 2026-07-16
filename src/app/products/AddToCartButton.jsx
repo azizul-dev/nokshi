@@ -80,7 +80,7 @@ const AddToCartButton = ({ product }) => {
             <Minus className="w-3.5 h-3.5" />
           </button>
 
-          {/* quantity number বদলালে ছোট্ট pop animation */}
+          
           <span className="join-item flex items-center justify-center w-9 text-sm font-medium text-[#1C1917] overflow-hidden">
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.span
@@ -145,7 +145,7 @@ const AddToCartButton = ({ product }) => {
         </motion.button>
       </div>
 
-      {/* Toast notification */}
+     
       <AnimatePresence>
         {showToast && (
           <motion.div

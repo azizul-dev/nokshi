@@ -55,7 +55,7 @@ const ProductCard = ({ product }) => {
   const { toggleWishlist, isInWishlist } = useCart();
   const inWishlist = isInWishlist(id);
 
-  // hoverImage আছে কিনা চেক করা হচ্ছে — না থাকলে (null/undefined) ছবি বদলাবে না
+  
   const hasHoverImage = Boolean(hoverImage);
 
   const handleWishlistClick = (e) => {
@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
         className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#E7E1D4] bg-[#FBF9F4] transition-colors duration-300 hover:border-[#B8935F]"
       >
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#EFE9DC]">
-          {/* মূল ছবি */}
+     
           <Image
             src={image}
             alt={name}
@@ -95,7 +95,7 @@ const ProductCard = ({ product }) => {
             }`}
           />
 
-          {/* hoverImage থাকলে সেটা উপরে cross-fade হয়ে বসবে */}
+          
           {hasHoverImage && (
             <Image
               src={hoverImage}
@@ -112,7 +112,7 @@ const ProductCard = ({ product }) => {
             {category}
           </span>
 
-          {/* উইশলিস্ট হার্ট বাটন */}
+        
           <button
             onClick={handleWishlistClick}
             aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
